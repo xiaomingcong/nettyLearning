@@ -9,6 +9,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 /**
  * @Description: TODO
@@ -32,6 +34,7 @@ public class MyServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     //设置保持活动连接状态
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     //使用匿名内部类的形式初始化通道对象
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
