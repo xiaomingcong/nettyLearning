@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-09T17:57:38.074Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="7-bNTC0RUDyHQKm0ehGq" version="20.2.3" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-08-09T18:00:16.741Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="hruXj0LMDNCwGuEcv3vU" version="20.2.3" type="github" pages="3">
   <diagram id="tIxRO8xajf78YPQee-sz" name="server初始化流程">
     <mxGraphModel dx="2768" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -257,6 +257,12 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="740" y="1610" as="sourcePoint" />
             <mxPoint x="430" y="1540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9O3o-UVENLf6trGfuzex-20" value="省略其余不重要的步骤，这里可以直接返回主线程了，后面由异步线程执行，&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;主要是NioEventLoop执行任务队列中的任务&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;fontColor=#000000;" edge="1" parent="1" source="Zc0WpYRjjQa7R1iuoixP-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="1720" as="sourcePoint" />
+            <mxPoint x="-200" y="1720" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
