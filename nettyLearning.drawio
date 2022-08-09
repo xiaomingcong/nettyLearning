@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-09T17:19:19.817Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="qJkwrx1UYg8BKolwj1QH" version="20.2.3" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-08-09T17:57:38.074Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="7-bNTC0RUDyHQKm0ehGq" version="20.2.3" type="github" pages="3">
   <diagram id="tIxRO8xajf78YPQee-sz" name="server初始化流程">
     <mxGraphModel dx="2768" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -39,7 +39,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="9O3o-UVENLf6trGfuzex-10" value="省略一些不重要的步骤，开启一个线程，&lt;br&gt;调用&lt;span style=&quot;font-size: 12px; background-color: rgb(248, 249, 250);&quot;&gt;NioEventLoop的run方法&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="Zc0WpYRjjQa7R1iuoixP-1" target="Zc0WpYRjjQa7R1iuoixP-2">
+        <mxCell id="9O3o-UVENLf6trGfuzex-10" value="调用next方法选择其中一个NioEventLoop，&lt;br&gt;执行其register方法" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="Zc0WpYRjjQa7R1iuoixP-1" target="Zc0WpYRjjQa7R1iuoixP-2">
           <mxGeometry x="0.1241" width="80" relative="1" as="geometry">
             <mxPoint x="90" y="1200" as="sourcePoint" />
             <mxPoint x="170" y="1200" as="targetPoint" />
@@ -67,10 +67,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-4" value="ServerBootstrap" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="800" y="100" width="100" height="1520" as="geometry" />
+          <mxGeometry x="800" y="100" width="100" height="2170" as="geometry" />
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-6" value="NioServerSocketChannel" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="1140" y="100" width="169" height="1620" as="geometry" />
+          <mxGeometry x="1140" y="100" width="169" height="2180" as="geometry" />
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-34" value="调用父类构造方法" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="Zc0WpYRjjQa7R1iuoixP-6" target="Zc0WpYRjjQa7R1iuoixP-7">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -79,7 +79,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-7" value="AbstractNioChannel" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="1380" y="100" width="120" height="1630" as="geometry" />
+          <mxGeometry x="1380" y="100" width="120" height="2180" as="geometry" />
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-38" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;fontColor=#000000;" edge="1" parent="Zc0WpYRjjQa7R1iuoixP-7" source="Zc0WpYRjjQa7R1iuoixP-8">
           <mxGeometry relative="1" as="geometry">
@@ -105,7 +105,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-8" value="AbstractChannel" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="1630" y="100" width="100" height="1620" as="geometry" />
+          <mxGeometry x="1630" y="100" width="100" height="2190" as="geometry" />
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-35" value="调用父类构造方法" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="Zc0WpYRjjQa7R1iuoixP-8" source="Zc0WpYRjjQa7R1iuoixP-7">
           <mxGeometry x="-0.1285" width="80" relative="1" as="geometry">
@@ -126,21 +126,28 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-9" value="SingleThreadEventLoop" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="600" y="100" width="150" height="1620" as="geometry" />
+          <mxGeometry x="600" y="100" width="150" height="2180" as="geometry" />
         </mxCell>
-        <mxCell id="Zc0WpYRjjQa7R1iuoixP-10" value="AbstractChannel.AbstractUnsafe" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="1850" y="100" width="220" height="1620" as="geometry" />
+        <mxCell id="9O3o-UVENLf6trGfuzex-13" value="拿到关联的channel的unsafe对象，调用其register方法，并继续把promise对象传进去" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="Zc0WpYRjjQa7R1iuoixP-9" target="Zc0WpYRjjQa7R1iuoixP-10">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="80" y="1360" as="sourcePoint" />
+            <mxPoint x="160" y="1360" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="9O3o-UVENLf6trGfuzex-8" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;labelBackgroundColor=#1A1A1A;" vertex="1" parent="Zc0WpYRjjQa7R1iuoixP-10">
-          <mxGeometry x="110" y="1260" width="10" height="40" as="geometry" />
+        <mxCell id="9O3o-UVENLf6trGfuzex-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;labelBackgroundColor=#1A1A1A;" vertex="1" parent="Zc0WpYRjjQa7R1iuoixP-9">
+          <mxGeometry x="80" y="1530" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="9O3o-UVENLf6trGfuzex-9" value="register0" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="9O3o-UVENLf6trGfuzex-8" parent="Zc0WpYRjjQa7R1iuoixP-10">
+        <mxCell id="9O3o-UVENLf6trGfuzex-18" value="1、开启线程&lt;br&gt;2、将任务添加到队列" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="9O3o-UVENLf6trGfuzex-17" parent="Zc0WpYRjjQa7R1iuoixP-9">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="115" y="1240" as="sourcePoint" />
+            <mxPoint x="85" y="1510" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="145" y="1240" />
+              <mxPoint x="115" y="1510" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="Zc0WpYRjjQa7R1iuoixP-10" value="AbstractChannel.AbstractUnsafe" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1850" y="100" width="220" height="2180" as="geometry" />
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-12" value="new" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="FBzr9HJSju0Ybb7Xefjj-1" target="FBzr9HJSju0Ybb7Xefjj-2">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -182,7 +189,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-29" value="AbstractBootstrap" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="950" y="100" width="100" height="1570" as="geometry" />
+          <mxGeometry x="950" y="100" width="100" height="2160" as="geometry" />
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-30" value="调用父类的dobind方法" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="Zc0WpYRjjQa7R1iuoixP-29" source="Zc0WpYRjjQa7R1iuoixP-4">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -230,8 +237,27 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="9O3o-UVENLf6trGfuzex-11" value="该方法是一个死循环，不断检测是否有任务在队列中，如果有的话执行select" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;labelBackgroundColor=#FFFFFF;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="-370" y="1320" width="480" height="80" as="geometry" />
+        <mxCell id="9O3o-UVENLf6trGfuzex-11" value="该线程实际执行的是子类NioEventLoop的run方法" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;labelBackgroundColor=#FFFFFF;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1500" width="410" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9O3o-UVENLf6trGfuzex-12" value="调用父类的register方法并实例化&lt;br&gt;一个DefaultChannelPromise传进去" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" target="Zc0WpYRjjQa7R1iuoixP-9">
+          <mxGeometry x="0.15" width="80" relative="1" as="geometry">
+            <mxPoint x="420" y="1359.5" as="sourcePoint" />
+            <mxPoint x="500" y="1359.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9O3o-UVENLf6trGfuzex-16" value="拿到这个NioEventLoop执行其execute方法，这里又调用了父类&lt;span style=&quot;font-size: 12px; background-color: rgb(248, 249, 250);&quot;&gt;SingleThreadEventLoop的execute方法，并创建一个执行register0(promise)的任务提交进去&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="Zc0WpYRjjQa7R1iuoixP-10">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="1780" y="1570" as="sourcePoint" />
+            <mxPoint x="700" y="1570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9O3o-UVENLf6trGfuzex-19" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fontColor=#000000;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="9O3o-UVENLf6trGfuzex-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740" y="1610" as="sourcePoint" />
+            <mxPoint x="430" y="1540" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
