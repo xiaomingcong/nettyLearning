@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2022-08-10T17:31:31.842Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="LdECdO3MnKbUNLRVSqzD" version="20.2.3" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-08-10T17:51:41.649Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="a5kjyl0Cz118Q6r9VnLF" version="20.2.3" type="github" pages="3">
   <diagram id="tIxRO8xajf78YPQee-sz" name="server启动流程">
     <mxGraphModel dx="2889" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="DxM8Dleu8LJ3Jo9YHwbV-5" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1850" y="1730" width="590" height="200" as="geometry" />
+          <mxGeometry x="1850" y="1720" width="680" height="210" as="geometry" />
         </mxCell>
         <mxCell id="Zc0WpYRjjQa7R1iuoixP-24" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;labelBackgroundColor=#1A1A1A;" parent="1" vertex="1">
           <mxGeometry x="120" y="390" width="490" height="130" as="geometry" />
@@ -158,7 +158,7 @@
         <mxCell id="DxM8Dleu8LJ3Jo9YHwbV-1" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;labelBackgroundColor=#1A1A1A;" vertex="1" parent="Zc0WpYRjjQa7R1iuoixP-10">
           <mxGeometry x="110" y="1730" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="DxM8Dleu8LJ3Jo9YHwbV-2" value="调用register0：&lt;br&gt;1、将channel注册到selector上&lt;br&gt;2、将handler注册到pipeline上&lt;br&gt;3、设置当前promise状态为success&lt;br&gt;4、发送一个事件，让所有关心pipeline上所有关心register事件的handler感知到" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="DxM8Dleu8LJ3Jo9YHwbV-1" parent="Zc0WpYRjjQa7R1iuoixP-10">
+        <mxCell id="DxM8Dleu8LJ3Jo9YHwbV-2" value="调用register0：&lt;br&gt;1、将channel注册到selector上&lt;br&gt;2、将handler注册到pipeline上&lt;br&gt;3、设置当前promise状态为success&lt;br&gt;4、发送一个事件，让所有关心pipeline上所有关心register事件的handler感知到&lt;br&gt;5、把channel的感兴趣事件设置为之前设置的SelectionKey.OP_ACCEPT，并注册到selector上" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="DxM8Dleu8LJ3Jo9YHwbV-1" parent="Zc0WpYRjjQa7R1iuoixP-10">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="115" y="1710" as="sourcePoint" />
             <Array as="points">
@@ -233,7 +233,7 @@
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="9O3o-UVENLf6trGfuzex-6" value="找到先前设置进来的bossGroup，调用其register方法" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" source="Zc0WpYRjjQa7R1iuoixP-29" target="Zc0WpYRjjQa7R1iuoixP-1" edge="1">
+        <mxCell id="9O3o-UVENLf6trGfuzex-6" value="找到先前设置进来的eventGroup，调用其register方法" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" source="Zc0WpYRjjQa7R1iuoixP-29" target="Zc0WpYRjjQa7R1iuoixP-1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="800" y="1230" as="sourcePoint" />
             <mxPoint x="230" y="1230" as="targetPoint" />
@@ -274,6 +274,22 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1610" y="1580" as="sourcePoint" />
             <mxPoint x="1360" y="1530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DxM8Dleu8LJ3Jo9YHwbV-8" value="异步执行" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DxM8Dleu8LJ3Jo9YHwbV-7">
+          <mxGeometry x="-0.1364" y="2" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DxM8Dleu8LJ3Jo9YHwbV-9" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.347;entryY=-0.019;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="DxM8Dleu8LJ3Jo9YHwbV-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1560" y="1040" as="sourcePoint" />
+            <mxPoint x="1740" y="1330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DxM8Dleu8LJ3Jo9YHwbV-10" value="这个SelectionKey在这里会使用到" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DxM8Dleu8LJ3Jo9YHwbV-9">
+          <mxGeometry x="-0.0946" y="-6" relative="1" as="geometry">
+            <mxPoint x="-1" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
