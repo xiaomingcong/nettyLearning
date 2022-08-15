@@ -21,8 +21,8 @@ import io.netty.handler.logging.LoggingHandler;
 public class MyServer {
     public static void main(String[] args) throws Exception {
         //创建两个线程组 boosGroup、workerGroup
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(2);
+        EventLoopGroup workerGroup = new NioEventLoopGroup(4);
         try {
             //创建服务端的启动对象，设置参数
             ServerBootstrap bootstrap = new ServerBootstrap();
