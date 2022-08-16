@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-15T07:10:59.148Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="WQWzY1QgLpK0u6xma1-O" version="20.2.3" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-08-16T03:32:43.472Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="TxAp2sraE2B5N7iKBdG9" version="20.2.3" type="github" pages="3">
   <diagram id="tIxRO8xajf78YPQee-sz" name="server启动流程">
     <mxGraphModel dx="2310" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -213,14 +213,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="oQnyXOKlGi86Vt2u1hFz-2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="Zc0WpYRjjQa7R1iuoixP-29">
-          <mxGeometry x="50" y="1610" width="10" height="40" as="geometry" />
+        <mxCell id="oQnyXOKlGi86Vt2u1hFz-5" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="Zc0WpYRjjQa7R1iuoixP-29">
+          <mxGeometry x="50" y="1674" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="oQnyXOKlGi86Vt2u1hFz-3" value="调用dobind0进行ip和port的绑定" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="oQnyXOKlGi86Vt2u1hFz-2" parent="Zc0WpYRjjQa7R1iuoixP-29">
+        <mxCell id="oQnyXOKlGi86Vt2u1hFz-6" value="调用dobind0进行ip和port的绑定" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="oQnyXOKlGi86Vt2u1hFz-5" parent="Zc0WpYRjjQa7R1iuoixP-29">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="55" y="1590" as="sourcePoint" />
+            <mxPoint x="55" y="1654" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="85" y="1590" />
+              <mxPoint x="85" y="1654" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -305,6 +305,18 @@
         <mxCell id="DxM8Dleu8LJ3Jo9YHwbV-10" value="这个SelectionKey在这里会使用到" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="DxM8Dleu8LJ3Jo9YHwbV-9" vertex="1" connectable="0">
           <mxGeometry x="-0.0946" y="-6" relative="1" as="geometry">
             <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oQnyXOKlGi86Vt2u1hFz-4" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="Zc0WpYRjjQa7R1iuoixP-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="1710" as="sourcePoint" />
+            <mxPoint x="990" y="1710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oQnyXOKlGi86Vt2u1hFz-7" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="Zc0WpYRjjQa7R1iuoixP-29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="940" y="1860" as="sourcePoint" />
+            <mxPoint x="860" y="1860" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
