@@ -7,6 +7,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -17,6 +18,11 @@ import java.util.Set;
  *         Version 1.0
  */
 public class NioServer {
+
+    private static final String classPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+
+    private static final ByteBuffer buffer = ByteBuffer.allocateDirect(1024 * 8);
+
     public static void main(String[] args) throws Exception {
         //打开一个ServerSocketChannel
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
@@ -50,17 +56,20 @@ public class NioServer {
                     //设置成非阻塞
                     socketChannel.configureBlocking(false);
                     //把socketChannel注册到selector中，监听读事件，并绑定一个缓冲区
-                    socketChannel.register(selector, SelectionKey.OP_READ, ByteBuffer.allocate(1024));
+//                    socketChannel.register(selector, SelectionKey.OP_READ, ByteBuffer.allocate(1024 * 8));
+                    socketChannel.register(selector, SelectionKey.OP_READ);
                 }
                 //如果是读事件
                 if (selectionKey.isReadable()) {
-
+                    long startTime = new Date().getTime();
                     //获取通道
                     SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
                     //获取关联的ByteBuffer
-                    ByteBuffer buffer = (ByteBuffer) selectionKey.attachment();
-                    System.out.println("readable");
-                    if ((socketChannel.read(buffer)) == -1) {
+//                    ByteBuffer buffer = (ByteBuffer) selectionKey.attachment();
+//                    socketChannel.read(buffer);
+//                    System.out.println("readable");
+                    int bytesRead;
+                    if ((bytesRead = socketChannel.read(buffer)) == -1) {
 
                         System.out.println("客户端断开连接！");
 
@@ -72,10 +81,26 @@ public class NioServer {
                         }
                     }else{
                         //打印从客户端获取到的数据
-                        socketChannel.read(buffer);
-                        System.out.println("from 客户端：" + new String(buffer.array()));
+//
+//                        System.out.println("from 客户端：" + new String(buffer.array()));
+//                        buffer.clear();
+
+                        System.out.println("from 客户端：" );
+                        while(bytesRead != -1)
+                        {
+                            buffer.flip();
+                            while(buffer.hasRemaining())
+                            {
+                                System.out.print((char)buffer.get());
+                            }
+                            buffer.compact();
+                            bytesRead = socketChannel.read(buffer);
+                        }
                         buffer.clear();
+                        System.out.println();
                     }
+                    long endTime = new Date().getTime();
+                    System.out.println("read data cost : " + String.valueOf(endTime - startTime));
                 }
                 //从事件集合中删除已处理的事件，防止重复处理
                 it.remove();
