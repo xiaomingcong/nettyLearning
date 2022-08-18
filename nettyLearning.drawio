@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-18T07:04:59.620Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="LTzyh1ICNEPwR7YeqISZ" version="20.2.4" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-08-18T07:19:09.816Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="Fe1n7cYoUORRcUBIhqFw" version="20.2.4" type="github" pages="3">
   <diagram id="tIxRO8xajf78YPQee-sz" name="server启动流程">
     <mxGraphModel dx="2013" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -323,7 +323,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="C_GjFuJY2KlmzBEu09hV" name="一次简单的交互流程">
-    <mxGraphModel dx="2013" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2804" dy="1090" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -378,32 +378,45 @@
         <mxCell id="iWK2emPMAw3g3S4QXDuC-17" value="读取channel的数据" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="250" y="630" width="210" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="iWK2emPMAw3g3S4QXDuC-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iWK2emPMAw3g3S4QXDuC-18" target="iWK2emPMAw3g3S4QXDuC-1">
+        <mxCell id="iWK2emPMAw3g3S4QXDuC-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="iWK2emPMAw3g3S4QXDuC-36" target="iWK2emPMAw3g3S4QXDuC-1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="-160" y="890" />
+              <mxPoint x="-160" y="1020" />
               <mxPoint x="-160" y="90" />
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="iWK2emPMAw3g3S4QXDuC-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iWK2emPMAw3g3S4QXDuC-18" target="iWK2emPMAw3g3S4QXDuC-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="iWK2emPMAw3g3S4QXDuC-18" value="pipeline.fireChannelRead,&lt;br&gt;pipeline.fireChannelReadComplete" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="110" y="860" width="260" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="iWK2emPMAw3g3S4QXDuC-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iWK2emPMAw3g3S4QXDuC-19" target="iWK2emPMAw3g3S4QXDuC-1">
+        <mxCell id="iWK2emPMAw3g3S4QXDuC-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="iWK2emPMAw3g3S4QXDuC-36" target="iWK2emPMAw3g3S4QXDuC-1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="695" y="860" />
-              <mxPoint x="1110" y="860" />
+              <mxPoint x="1110" y="1020" />
               <mxPoint x="1110" y="90" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iWK2emPMAw3g3S4QXDuC-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iWK2emPMAw3g3S4QXDuC-19" target="iWK2emPMAw3g3S4QXDuC-36">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="695" y="910" />
+              <mxPoint x="420" y="910" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="iWK2emPMAw3g3S4QXDuC-19" value="把buffer中的数据发送出去，&lt;br&gt;channel.write(buf)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="590" y="630" width="210" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="iWK2emPMAw3g3S4QXDuC-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iWK2emPMAw3g3S4QXDuC-20">
+        <mxCell id="iWK2emPMAw3g3S4QXDuC-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iWK2emPMAw3g3S4QXDuC-20" target="iWK2emPMAw3g3S4QXDuC-36">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1110" y="660" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="980" y="910" />
+              <mxPoint x="420" y="910" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="iWK2emPMAw3g3S4QXDuC-20" value="标记为连接就绪" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -443,6 +456,9 @@
         </mxCell>
         <mxCell id="iWK2emPMAw3g3S4QXDuC-21" value="事件类型" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="315" y="440" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iWK2emPMAw3g3S4QXDuC-36" value="执行队列中的任务" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="990" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
